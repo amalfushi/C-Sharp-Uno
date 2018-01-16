@@ -6,7 +6,7 @@ namespace Uno
     public class Deck
     {
         public List<Card> cards { get; set; }
-        
+
         public Deck()
         {
             CreateDeck();
@@ -21,16 +21,18 @@ namespace Uno
         public void CreateDeck()
         {
             cards = new List<Card>();
-            string[] colors = {"Red", "Yellow", "Blue", "Green"};
-            foreach(string c in colors)
+            string[] colors = { "Red", "Yellow", "Blue", "Green" };
+            foreach (string c in colors)
             {
-                for(int i = 1; i < 13; i++){
+                for (int i = 1; i < 13; i++)
+                {
                     cards.Add(new Card(c, i));
                     cards.Add(new Card(c, i));
                 }
                 cards.Add(new Card(c, 0));
             }
-            for(int i = 0; i < 4; i++){
+            for (int i = 0; i < 4; i++)
+            {
                 cards.Add(new Card("Wild", 13));
                 cards.Add(new Card("Wild", 14));
             }
@@ -39,7 +41,7 @@ namespace Uno
         public void Shuffle()
         {
             Random rand = new Random();
-            for(int i = 0; i < cards.Count; i++)
+            for (int i = 0; i < cards.Count; i++)
             {
                 int otherIndex = rand.Next(0, cards.Count);
                 Card temp = cards[otherIndex];
@@ -56,11 +58,12 @@ namespace Uno
 
         public override string ToString()
         {
-            foreach(Card c in cards)
+            foreach (Card c in cards)
             {
-                System.Console.WriteLine(c);
+                c.PrintCard();
+                System.Console.WriteLine();
             }
-            return $"{cards.Count} cards in the deck";
+            return $"\n{cards.Count} cards in the deck";
         }
     }
 }

@@ -7,3 +7,11 @@ C:\Users\Jeffr\Desktop\Github\C#\Fundamentals\Uno\obj\Debug\netcoreapp1.1\Uno.cs
 C:\Users\Jeffr\Desktop\Github\C#\Fundamentals\Uno\obj\Debug\netcoreapp1.1\Uno.AssemblyInfo.cs
 C:\Users\Jeffr\Desktop\Github\C#\Fundamentals\Uno\obj\Debug\netcoreapp1.1\Uno.dll
 C:\Users\Jeffr\Desktop\Github\C#\Fundamentals\Uno\obj\Debug\netcoreapp1.1\Uno.pdb
+C:\Users\amalfushi\Google Drive\DojoAssignments\Projects\Uno\bin\Debug\netcoreapp1.1\Uno.deps.json
+C:\Users\amalfushi\Google Drive\DojoAssignments\Projects\Uno\bin\Debug\netcoreapp1.1\Uno.runtimeconfig.json
+C:\Users\amalfushi\Google Drive\DojoAssignments\Projects\Uno\bin\Debug\netcoreapp1.1\Uno.runtimeconfig.dev.json
+C:\Users\amalfushi\Google Drive\DojoAssignments\Projects\Uno\bin\Debug\netcoreapp1.1\Uno.dll
+C:\Users\amalfushi\Google Drive\DojoAssignments\Projects\Uno\bin\Debug\netcoreapp1.1\Uno.pdb
+C:\Users\amalfushi\Google Drive\DojoAssignments\Projects\Uno\obj\Debug\netcoreapp1.1\Uno.AssemblyInfo.cs
+C:\Users\amalfushi\Google Drive\DojoAssignments\Projects\Uno\obj\Debug\netcoreapp1.1\Uno.dll
+C:\Users\amalfushi\Google Drive\DojoAssignments\Projects\Uno\obj\Debug\netcoreapp1.1\Uno.pdb
