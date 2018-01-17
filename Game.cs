@@ -49,14 +49,14 @@ namespace Uno
             System.Console.WriteLine("\n\n\n\n\n\n\n\n");
 
             Console.ForegroundColor = ConsoleColor.Cyan;
-            System.Console.WriteLine("\nEnter your name:");
+            System.Console.WriteLine("\n     Enter your name:");
             System.Console.Out.Flush();
 
             string input = System.Console.ReadLine();
             
             while (input.Length < 1)
             {
-                System.Console.WriteLine("\nName is too short.");
+                System.Console.WriteLine("\n     Name is too short.");
                 input = System.Console.ReadLine();
             }
             Console.ResetColor();
@@ -67,12 +67,12 @@ namespace Uno
         public void Run()
         {
             topCard = deck.Deal();
-            System.Console.WriteLine("\n-------------------------------------");
+            System.Console.WriteLine("\n     -------------------------------------");
             while (playing)
             {
                 if (deck.cards.Count < 1)
                 {
-                    System.Console.WriteLine("\nThe deck is impty. Shuffling Discard pile!\n\n-------------------------------------");
+                    System.Console.WriteLine("\n     The deck is impty. Shuffling Discard pile!\n\n     -------------------------------------");
                     Reshuffle();
                 }
 
@@ -93,7 +93,7 @@ namespace Uno
                 {
                     opponentTurn();
                 }
-                System.Console.WriteLine("\n-------------------------------------");
+                System.Console.WriteLine("\n     -------------------------------------");
             }
         }
 
@@ -105,22 +105,22 @@ namespace Uno
 
         public void playerTurn()
         {
-            System.Console.Write($"\nThe top card is a ");
+            System.Console.Write($"\n     The top card is a ");
             topCard.PrintCard();
             System.Console.WriteLine(".");
 
-            System.Console.WriteLine("\nYour hand:");
+            System.Console.WriteLine("\n     Your hand:");
             System.Console.WriteLine(player);
             if (CheckLegalMoves(player))
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                System.Console.WriteLine("\nWhich card would you like to play?");
+                System.Console.WriteLine("\n     Which card would you like to play?");
                 Console.Out.Flush();
 
                 int input;
                 while (!(Int32.TryParse(Console.ReadLine(), out input)) || input > player.hand.Count - 1 || input < 0 || !CheckMove(player.hand[input]))
                 {
-                    System.Console.WriteLine("\nTry again.");
+                    System.Console.WriteLine("\n     Try again.");
                 }
                 Console.ResetColor();
 
@@ -131,14 +131,14 @@ namespace Uno
 
                 if (player.hand.Count == 0)//check for player win
                 {
-                    System.Console.WriteLine("\nYou win!");
+                    System.Console.WriteLine("\n     You win!");
                     playing = false;
                 }
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                System.Console.WriteLine("\nYou have no legal moves! Press enter to draw a card.");
+                System.Console.WriteLine("\n     You have no legal moves! Press enter to draw a card.");
                 Console.ResetColor();
                 System.Console.ReadLine();
 
@@ -150,7 +150,7 @@ namespace Uno
 
         public void opponentTurn()
         {
-            System.Console.WriteLine($"\n{currentPlayer.name} takes their turn.");
+            System.Console.WriteLine($"\n     {currentPlayer.name} takes their turn.");
 
             startingTotal = currentPlayer.hand.Count;
             discarded = topCard;
@@ -165,8 +165,8 @@ namespace Uno
 
             if (currentPlayer.hand.Count == 0)//check for opponent win
             {
-                System.Console.WriteLine("\n" + currentPlayer.name + " wins!");
-                if (!PlayAgain()) return;
+                System.Console.WriteLine("\n     " + currentPlayer.name + " wins!");
+                if (PlayAgain()== false) return;
                 else Reset();
             }
 
@@ -219,11 +219,11 @@ namespace Uno
             if (pl == player)
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                System.Console.WriteLine($"\nPress enter to draw {amount} cards.");
+                System.Console.WriteLine($"\n     Press enter to draw {amount} cards.");
                 System.Console.ReadLine();
                 Console.ResetColor();
             }
-            System.Console.WriteLine($"\n{pl.name} draws {amount} cards.");
+            System.Console.WriteLine($"\n       {pl.name} draws {amount} cards.");
             pl.Draw(deck, amount);
         }
 
@@ -232,17 +232,21 @@ namespace Uno
             List<string> yes = new List<string> { "y", "Y", "Yes", "yes", "YES" };
             List<string> no = new List<string> { "n", "N", "no", "No", "NO" };
 
-            System.Console.WriteLine("\nWould you like to play again?");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            System.Console.WriteLine("\n     Would you like to play again?");
             System.Console.Out.Flush();
             string input = System.Console.ReadLine();
 
             //while the player input is not from one of the lists above, continue to ask
             while (!yes.Contains(input) && !no.Contains(input))
             {
-                System.Console.WriteLine("\nPlease enter Yes or No.");
+                System.Console.WriteLine("\n     Please enter Yes or No.");
                 input = System.Console.ReadLine();
             }
+            Console.ResetColor();
+            
             if (yes.Contains(input)) return true;
+            else playing = false;
             return false;
         }
 
@@ -253,13 +257,13 @@ namespace Uno
             int numberOpponents = 0;
 
             Console.ForegroundColor = ConsoleColor.Cyan;
-            System.Console.WriteLine("\nHow many opponents would you like to play against? (1 to 9)");
+            System.Console.WriteLine("\n     How many opponents would you like to play against? (1 to 9)");
             Console.Out.Flush();
 
             //while the player input is not a number or not a valid number, continue to ask;
             while (!(Int32.TryParse(Console.ReadLine(), out numberOpponents)) || numberOpponents < 1 || numberOpponents > 9)
             {
-                System.Console.WriteLine("\nPlease enter a valid number of opponents.");
+                System.Console.WriteLine("\n     Please enter a valid number of opponents.");
             }
             Console.ResetColor();
 

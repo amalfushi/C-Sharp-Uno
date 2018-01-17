@@ -48,7 +48,7 @@ namespace Uno
             {
                 if (hand[i].color == topCard.color || hand[i].faceVal == topCard.faceVal || topCard.color == "Wild")
                 {
-                    System.Console.Write($"\n{name} plays a ");
+                    System.Console.Write($"\n     {name} plays a ");
                     hand[i].PrintCard();
                     System.Console.WriteLine($", and has {hand.Count - 1} cards remaining.");
                     return Play(i);
@@ -57,7 +57,7 @@ namespace Uno
 
             Draw(deck);
 
-            System.Console.WriteLine("\n" + name + " draws a card, and now has " + hand.Count + " cards.");
+            System.Console.WriteLine("\n     " + name + " draws a card, and now has " + hand.Count + " cards.");
             return topCard;
         }
 
@@ -66,12 +66,12 @@ namespace Uno
         {
             for (int i = 0; i < hand.Count; i++)
             {
-                System.Console.Write("     " + i + " - ");
+                System.Console.Write("          " + i + " - ");
                 hand[i].PrintCard();
                 System.Console.WriteLine();
             }
 
-            return $"\nYou have {hand.Count} cards.";
+            return $"\n     You have {hand.Count} cards.";
         }
     }
 }
